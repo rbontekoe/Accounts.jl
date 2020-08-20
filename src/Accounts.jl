@@ -2,7 +2,6 @@ module Accounts
 
 export EMAIL, WORK # Domain
 export create # API
-
 export add_to_file, read_from_file # Infrastructure
 
 include("Domain.jl"); using .Domain
