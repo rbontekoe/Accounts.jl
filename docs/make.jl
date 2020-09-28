@@ -8,8 +8,8 @@ makedocs(;
     pages=[
         "Accounts" => "index.md",
         "1 - API" => "api.md",
-        #"2 - Infrastructure" => "infrastructure.md",
-        #"3 - Example" => "example.jl"
+        "2 - Infrastructure" => "infrastructure.md",
+        "3 - Example" => "example.md"
     ],
     sitename="Accounts.jl",
 )
