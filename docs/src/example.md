@@ -32,9 +32,9 @@ add_to_file(FILE_ACCOUNTS, [donald])
 
 result = read_from_file(FILE_ACCOUNTS)
 
-println(result[first].name)
+println(result[1].name)
 
-println(result[first].addresses[first].address)
+println(result[1].addresses[1].address)
 
 rm(FILE_ACCOUNTS) # Remove the file
 ```
