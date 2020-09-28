@@ -25,7 +25,7 @@ struct Person
   name::String
   addresses::Array{Address, 1}
   #constructors
-  Person(name) = new(create_key(name), name, [])
+  Person(name) = new(create_key(name), now(), name, [])
   Person(name, addresses) = new(create_key(name), now(), name, addresses)
 end
 
