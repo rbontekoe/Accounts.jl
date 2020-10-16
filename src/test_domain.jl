@@ -1,4 +1,6 @@
-using Pkg; Pkg.activate(".")
+using Pkg
+
+Pkg.activate(".")
 
 import Accounts: Domain
 
