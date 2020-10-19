@@ -1,26 +1,32 @@
 # Example with currying and piping
 
-using Pkg
-
-Pkg.activate(".")
-
-using Accounts
+using Accounts, DataFrames
 
 const FILE_ACCOUNTS = "./test_accounts.txt"
 
-# Currying, see: https://riptutorial.com/julia-lang/example/20261/implementing-currying
+# declare Currying, see: https://riptutorial.com/julia-lang/example/20261/implementing-currying
 
 curry(f, x) = (xs...) -> f(x, xs...)
 
 save = curry(add_to_file, FILE_ACCOUNTS)
 
+read = curry(read_from_file, FILE_ACCOUNTS)
+
+# end Currying
+
 email = create(EMAIL, "donald@duckcity.com")
 
 donald = create("Donald Duck", [email])
 
+# using Currying
+
 [donald] |> save # How to use it
 
-println(read_from_file(FILE_ACCOUNTS))
+r = read() |> DataFrame
+
+println(r)
+
+# Remove data file
 
 cmd = `rm $FILE_ACCOUNTS` # linux remove file statement
 

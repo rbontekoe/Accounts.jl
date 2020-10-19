@@ -13,7 +13,6 @@ end
 const FILE_ACCOUNTS = &quot;./test_accounts.txt&quot;
 
 donald_email = create(EMAIL, &quot;donald@duckcity.com&quot;)
-
 donald_work = create(WORK,
   &quot;&quot;&quot;
   Donalds Hardware Store
@@ -32,8 +31,44 @@ add_to_file(FILE_ACCOUNTS, [donald])
 
 result = read_from_file(FILE_ACCOUNTS)
 
+<<<<<<< HEAD
 println(result[1].name)
 
 println(result[1].addresses[1].address)
 
 rm(FILE_ACCOUNTS) # Remove the file</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../infrastructure/">« 2 - Infrastructure</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 28 September 2020 17:44">Monday 28 September 2020</span>. Using Julia version 1.5.0-rc2.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+=======
+println(result)</code></pre><h2 id="Example-2:-Currying-and-Piping."><a class="docs-heading-anchor" href="#Example-2:-Currying-and-Piping.">Example 2: Currying and Piping.</a><a id="Example-2:-Currying-and-Piping.-1"></a><a class="docs-heading-anchor-permalink" href="#Example-2:-Currying-and-Piping." title="Permalink"></a></h2><pre><code class="language-none"># Example with currying and piping
+
+using Accounts, DataFrames
+
+const FILE_ACCOUNTS = &quot;./test_accounts.txt&quot;
+
+# declare Currying, see: https://riptutorial.com/julia-lang/example/20261/implementing-currying
+
+curry(f, x) = (xs...) -&gt; f(x, xs...)
+
+save = curry(add_to_file, FILE_ACCOUNTS)
+
+read = curry(read_from_file, FILE_ACCOUNTS)
+
+# end Currying
+
+email = create(EMAIL, &quot;donald@duckcity.com&quot;)
+
+donald = create(&quot;Donald Duck&quot;, [email])
+
+# using Currying
+
+[donald] |&gt; save # How to use it
+
+r = read() |&gt; DataFrame
+
+println(r)
+
+# Remove data file
+
+cmd = `rm $FILE_ACCOUNTS` # linux remove file statement
+
+run(cmd) # execute remove file</code></pre></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../infrastructure/">« 2 - Infrastructure</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> on <span class="colophon-date" title="Monday 19 October 2020 11:14">Monday 19 October 2020</span>. Using Julia version 1.5.0-rc2.0.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+>>>>>>> docs
