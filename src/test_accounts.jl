@@ -8,7 +8,7 @@ const FILE_ACCOUNTS = "./test_accounts.txt"
 
 curry(f, x) = (xs...) -> f(x, xs...)
 
-save = curry(add_to_file, FILE_ACCOUNTS)
+add = curry(add_to_file, FILE_ACCOUNTS)
 
 read = curry(read_from_file, FILE_ACCOUNTS)
 
@@ -20,7 +20,7 @@ donald = create("Donald Duck", [email])
 
 # using Currying
 
-[donald] |> save # How to use it
+[donald] |> add # How to use it
 
 r = read() |> DataFrame
 

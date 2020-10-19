@@ -1,4 +1,7 @@
-<<<<<<< HEAD
+# Examples
+
+## Example 1: Create, Save, and Retrieve Data.
+
 ```julia
 using Pkg
 
@@ -10,13 +13,6 @@ catch e
     Pkg.add(url="https://github.com/rbontekoe/Accounts.jl")
     using Accounts
 end
-=======
-# Examples
-
-## Example 1: Create, Save and Retrieve Data.
-```
-using Accounts
->>>>>>> docs
 
 const FILE_ACCOUNTS = "./test_accounts.txt"
 
@@ -40,20 +36,15 @@ add_to_file(FILE_ACCOUNTS, [donald])
 
 result = read_from_file(FILE_ACCOUNTS)
 
-<<<<<<< HEAD
 println(result[1].name)
 
 println(result[1].addresses[1].address)
 
 rm(FILE_ACCOUNTS) # Remove the file
-=======
-println(result)
 ```
 
 ## Example 2: Currying and Piping.
-```
-# Example with currying and piping
-
+```julia
 using Accounts, DataFrames
 
 const FILE_ACCOUNTS = "./test_accounts.txt"
@@ -62,7 +53,7 @@ const FILE_ACCOUNTS = "./test_accounts.txt"
 
 curry(f, x) = (xs...) -> f(x, xs...)
 
-save = curry(add_to_file, FILE_ACCOUNTS)
+add = curry(add_to_file, FILE_ACCOUNTS)
 
 read = curry(read_from_file, FILE_ACCOUNTS)
 
@@ -74,7 +65,7 @@ donald = create("Donald Duck", [email])
 
 # using Currying
 
-[donald] |> save # How to use it
+[donald] |> add # How to use it
 
 r = read() |> DataFrame
 
@@ -84,6 +75,5 @@ println(r)
 
 cmd = `rm $FILE_ACCOUNTS` # linux remove file statement
 
-run(cmd) # execute remove file
->>>>>>> docs
+run(cmd) # remove the file
 ```
