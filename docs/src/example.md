@@ -44,6 +44,7 @@ rm(FILE_ACCOUNTS) # Remove the file
 ```
 
 ## Example 2: Currying and Piping.
+
 ```julia
 using Accounts, DataFrames
 
