@@ -43,7 +43,7 @@ println(result[1].addresses[1].address)
 rm(FILE_ACCOUNTS) # Remove the file
 ```
 
-## Example 2: Currying and Piping
+## Example 2: Currying and Piping (|>)
 
 ```julia
 using Accounts, DataFrames
